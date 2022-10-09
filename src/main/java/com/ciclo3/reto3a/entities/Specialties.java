@@ -17,7 +17,7 @@ public class Specialties {
     private String Description;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "specialty") //mappedBy se refiere al atributo donde esta specialties
-    @JsonIgnoreProperties("specialties")
+    @JsonIgnoreProperties("specialty")
     private List<Doctors> doctors;
 
     public Integer getId() {

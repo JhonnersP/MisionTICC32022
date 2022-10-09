@@ -19,11 +19,11 @@ public class Clients {
     private String Password;
 
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "client")
-    @JsonIgnoreProperties("clients")
+    @JsonIgnoreProperties("client")
     private List<Messages> message;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "client")
-    @JsonIgnoreProperties("clients")
+    @JsonIgnoreProperties("client")
     private List<Reservations> reservations;
 
     public Integer getId() {

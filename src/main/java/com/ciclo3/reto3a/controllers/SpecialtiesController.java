@@ -19,7 +19,7 @@ public class SpecialtiesController {
         return specialtiesService.getAll();
     }
 
-    @PostMapping("/all")
+    @PostMapping("/save")
     public Specialties save(@RequestBody Specialties sp){
 
         return specialtiesService.save(sp);

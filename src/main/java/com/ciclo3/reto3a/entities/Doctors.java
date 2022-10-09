@@ -19,7 +19,7 @@ public class Doctors {
 
     @ManyToOne
     @JoinColumn(name = "specialtyId")
-    @JsonIgnoreProperties("doctors")
+    @JsonIgnoreProperties("doctor")
     private Specialties specialty;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "doctor")
@@ -27,7 +27,7 @@ public class Doctors {
     private List<Messages> messages;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "doctor")
-    @JsonIgnoreProperties("doctors")
+    @JsonIgnoreProperties("doctor")
     private List<Reservations> reservations;
 
     public Integer getId() {
