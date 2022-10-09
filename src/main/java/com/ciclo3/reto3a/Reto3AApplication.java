@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Reto3AApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(Reto3AApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(Reto3AApplication.class, args);
+    }
 
 }
