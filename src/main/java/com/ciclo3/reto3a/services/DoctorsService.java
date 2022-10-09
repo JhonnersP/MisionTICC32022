@@ -60,20 +60,32 @@ public class DoctorsService {
                 }
                 if(doc.getDepartment()!=null){
 
+                    dc.get().setDepartment(doc.getDepartment());
+
                 }
                 if(doc.getDescription()!=null){
+
+                    dc.get().setDescription(doc.getDescription());
 
                 }
                 if(doc.getReservations()!=null){
 
+                    dc.get().setReservations(doc.getReservations());
+
                 }
                 if(doc.getMessages()!=null){
+
+                    dc.get().setMessages(doc.getMessages());
 
                 }
                 if(doc.getSpecialty()!=null){
 
+                    dc.get().setSpecialty(doc.getSpecialty());
+
                 }
                 if(doc.getYear()!=null){
+
+                    dc.get().setYear(doc.getYear());
 
                 }
                 doctorsRepository.save(dc.get());
