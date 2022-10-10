@@ -24,13 +24,13 @@ public class ReservationsRepository {
         return reservationsCrudRepository.findById(id);
     }
 
-    public Reservations save(Reservations sp){
+    public Reservations save(Reservations r){
 
-        return reservationsCrudRepository.save(sp);
+        return reservationsCrudRepository.save(r);
     }
 
-    public void delete(Reservations sp){
+    public void delete(Reservations r){
 
-        reservationsCrudRepository.delete(sp);
+        reservationsCrudRepository.delete(r);
     }
 }
