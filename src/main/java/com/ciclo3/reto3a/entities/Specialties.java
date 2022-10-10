@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "specialties")
+@Table(name = "tblspecialties")
 public class Specialties {
 
     @Id
