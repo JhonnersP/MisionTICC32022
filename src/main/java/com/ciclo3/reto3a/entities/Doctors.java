@@ -27,7 +27,7 @@ public class Doctors {
     private List<Messages> messages;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "doctor")
-    @JsonIgnoreProperties("doctor")
+    @JsonIgnoreProperties("doctors")
     private List<Reservations> reservations;
 
     public Integer getId() {
