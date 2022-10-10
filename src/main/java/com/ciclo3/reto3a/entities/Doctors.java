@@ -19,7 +19,7 @@ public class Doctors {
 
     @ManyToOne
     @JoinColumn(name = "specialtyId")
-    @JsonIgnoreProperties("doctor")
+    @JsonIgnoreProperties("doctors")
     private Specialties specialty;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "doctor")
