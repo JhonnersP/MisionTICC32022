@@ -18,12 +18,12 @@ public class Reservations {
 
     @ManyToOne
     @JoinColumn(name = "doctorId")
-    @JsonIgnoreProperties("reservations")
+    @JsonIgnoreProperties("doctor")
     private Doctors doctor;
 
     @ManyToOne
     @JoinColumn(name = "clientId")
-    @JsonIgnoreProperties("reservations")
+    @JsonIgnoreProperties("doctor")
     private Clients client;
 
     public Integer getId() {

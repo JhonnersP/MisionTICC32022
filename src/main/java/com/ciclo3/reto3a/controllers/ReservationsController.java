@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/Specialty")
+@RequestMapping("/api/Reservation")
 public class ReservationsController {
 
     @Autowired
@@ -20,9 +20,9 @@ public class ReservationsController {
     }
 
     @PostMapping("/save")
-    public Reservations save(@RequestBody Reservations sp){
+    public Reservations save(@RequestBody Reservations r){
 
-        return reservationsService.save(sp);
+        return reservationsService.save(r);
     }
 
 

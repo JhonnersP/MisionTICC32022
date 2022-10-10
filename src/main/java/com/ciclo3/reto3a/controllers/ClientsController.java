@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/Specialty")
+@RequestMapping("/api/Client")
 public class ClientsController {
 
     @Autowired
@@ -20,9 +20,9 @@ public class ClientsController {
     }
 
     @PostMapping("/save")
-    public Clients save(@RequestBody Clients sp){
+    public Clients save(@RequestBody Clients cl){
 
-        return clientsService.save(sp);
+        return clientsService.save(cl);
     }
 
 
