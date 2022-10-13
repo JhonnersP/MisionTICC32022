@@ -3,6 +3,7 @@ package com.ciclo3.reto3a.controllers;
 import com.ciclo3.reto3a.entities.Specialties;
 import com.ciclo3.reto3a.services.SpecialtiesService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,6 +21,7 @@ public class SpecialtiesController {
     }
 
     @PostMapping("/save")
+    @ResponseStatus(HttpStatus.CREATED)
     public Specialties save(@RequestBody Specialties sp){
 
         return specialtiesService.save(sp);
