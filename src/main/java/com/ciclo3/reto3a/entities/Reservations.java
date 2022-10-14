@@ -18,13 +18,17 @@ public class Reservations {
 
     @ManyToOne
     @JoinColumn(name = "doctorId")
-    @JsonIgnoreProperties({"reservations","reservation"})
+    @JsonIgnoreProperties({"reservations"})
     private Doctors doctor;
 
     @ManyToOne
     @JoinColumn(name = "clientId")
-    @JsonIgnoreProperties({"reservations","reservation"})
+    @JsonIgnoreProperties({"reservations","messages"})
     private Clients client;
+
+    @OneToOne(cascade = {CascadeType.REMOVE}, mappedBy = "reservation")
+    @JsonIgnoreProperties("reservation")
+    private Scores Score;
 
     public Integer getId() {
         return Id;
@@ -64,5 +68,13 @@ public class Reservations {
 
     public void setClient(Clients client) {
         this.client = client;
+    }
+
+    public Scores getScore() {
+        return Score;
+    }
+
+    public void setScore(Scores score) {
+        Score = score;
     }
 }

@@ -23,11 +23,11 @@ public class Doctors {
     private Specialties specialty;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "doctor")
-    @JsonIgnoreProperties("doctor")
+    @JsonIgnoreProperties({"doctor","client"})
     private List<Messages> messages;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "doctor")
-    @JsonIgnoreProperties({"client","doctor"})
+    @JsonIgnoreProperties({"doctor","messages"})
     private List<Reservations> reservations;
 
     public Integer getId() {
