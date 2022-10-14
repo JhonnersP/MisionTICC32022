@@ -2,6 +2,8 @@ package com.ciclo3.reto3a.entities;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.persistence.*;
 import java.util.Date;

@@ -1,17 +1,18 @@
 package com.ciclo3.reto3a.controllers;
 
-import com.ciclo3.reto3a.entities.Reservations;
+
 import com.ciclo3.reto3a.entities.Scores;
-import com.ciclo3.reto3a.services.ReservationsService;
 import com.ciclo3.reto3a.services.ScoresService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/Score")
+@CrossOrigin(origins = "*", methods = {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 public class ScoresController {
 
     @Autowired
@@ -21,6 +22,11 @@ public class ScoresController {
     @ResponseStatus(HttpStatus.CREATED)
     public List<Scores> getAll(){
         return scoresService.getAll();
+    }
+
+    @GetMapping("/{id}")
+    public Optional<Scores> get(@PathVariable("id") int Id) {
+        return scoresService.getScore(Id);
     }
 
     @PostMapping("/save")

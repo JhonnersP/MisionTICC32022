@@ -7,9 +7,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/Doctor")
+@CrossOrigin(origins = "*", methods = {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 public class DoctorsController {
 
     @Autowired
@@ -20,6 +22,11 @@ public class DoctorsController {
     public List<Doctors> getAll(){
 
         return doctorsService.getAll();
+    }
+
+    @GetMapping("/{id}")
+    public Optional<Doctors> get(@PathVariable("id") int Id) {
+        return doctorsService.getDoctor(Id);
     }
 
     @PostMapping("/save")
