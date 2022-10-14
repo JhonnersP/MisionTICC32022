@@ -6,11 +6,12 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Table(name = "reservations")
-public class Reservations {
+public class Reservations implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

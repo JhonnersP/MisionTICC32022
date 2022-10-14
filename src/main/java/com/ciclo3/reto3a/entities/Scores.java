@@ -4,10 +4,11 @@ package com.ciclo3.reto3a.entities;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "scores")
-public class Scores {
+public class Scores implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

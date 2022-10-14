@@ -5,10 +5,11 @@ package com.ciclo3.reto3a.entities;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "tblmessages")
-public class Messages {
+public class Messages implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
