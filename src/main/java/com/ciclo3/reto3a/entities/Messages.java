@@ -12,25 +12,25 @@ public class Messages {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer Id;
+    private Integer IdMessage;
     private String MessageText;
 
     @ManyToOne
     @JoinColumn(name = "doctorId")
-    @JsonIgnoreProperties({"messages","reservations"})
+    @JsonIgnoreProperties({"messages", "reservations"})
     private Doctors doctor;
 
     @ManyToOne
     @JoinColumn(name = "clientId")
-    @JsonIgnoreProperties({"messages","reservations"})
+    @JsonIgnoreProperties({"messages", "reservations"})
     private Clients client;
 
-    public Integer getId() {
-        return Id;
+    public Integer getIdMessage() {
+        return IdMessage;
     }
 
-    public void setId(Integer id) {
-        Id = id;
+    public void setIdMessage(Integer idMessage) {
+        IdMessage = idMessage;
     }
 
     public String getMessageText() {

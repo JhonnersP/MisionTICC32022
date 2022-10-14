@@ -7,12 +7,12 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "tblclients")
+@Table(name = "clients")
 public class Clients {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer Id;
+    private Integer IdClient;
     private String Name;
     private Integer Age;
     private String Email;
@@ -26,12 +26,12 @@ public class Clients {
     @JsonIgnoreProperties("client")
     private List<Reservations> reservations;
 
-    public Integer getId() {
-        return Id;
+    public Integer getIdClient() {
+        return IdClient;
     }
 
-    public void setId(Integer id) {
-        Id = id;
+    public void setIdClient(Integer idClient) {
+        IdClient = idClient;
     }
 
     public String getName() {

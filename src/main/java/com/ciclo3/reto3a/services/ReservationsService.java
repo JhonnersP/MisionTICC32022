@@ -27,12 +27,12 @@ public class ReservationsService {
 
     public Reservations save(Reservations r){
 
-        if(r.getId()==null){
+        if(r.getIdReservation()==null){
 
             return reservationsRepository.save(r);
         }else{
 
-            Optional<Reservations> r2= reservationsRepository.getReservation(r.getId());
+            Optional<Reservations> r2= reservationsRepository.getReservation(r.getIdReservation());
 
             if(r2.isPresent()){
                 return r;
@@ -44,9 +44,9 @@ public class ReservationsService {
 
     public Reservations update(Reservations r){
 
-        if(r.getId()!=null){
+        if(r.getIdReservation()!=null){
 
-            Optional<Reservations> r2 = reservationsRepository.getReservation(r.getId());//Traer elemento BD con id de sp
+            Optional<Reservations> r2 = reservationsRepository.getReservation(r.getIdReservation());//Traer elemento BD con id de sp
 
             if(r2.isPresent()){
 
@@ -85,7 +85,7 @@ public class ReservationsService {
 
         boolean flag = false;
 
-        Optional<Reservations> r2 = reservationsRepository.getReservation(r.getId());
+        Optional<Reservations> r2 = reservationsRepository.getReservation(r.getIdReservation());
 
         if(r2.isPresent()){
 

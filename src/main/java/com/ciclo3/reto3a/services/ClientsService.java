@@ -27,12 +27,12 @@ public class ClientsService {
 
     public Clients save(Clients cl){
 
-        if(cl.getId()==null){
+        if(cl.getIdClient()==null){
 
             return clientsRepository.save(cl);
         }else{
 
-            Optional<Clients> cl2= clientsRepository.getClient(cl.getId());
+            Optional<Clients> cl2= clientsRepository.getClient(cl.getIdClient());
 
             if(cl2.isPresent()){
                 return cl;
@@ -44,9 +44,9 @@ public class ClientsService {
 
     public Clients update(Clients cl){
 
-        if(cl.getId()!=null){
+        if(cl.getIdClient()!=null){
 
-            Optional<Clients> cl2 = clientsRepository.getClient(cl.getId());//Traer elemento BD con id de sp
+            Optional<Clients> cl2 = clientsRepository.getClient(cl.getIdClient());//Traer elemento BD con id de sp
 
             if(cl2.isPresent()){
 
@@ -90,7 +90,7 @@ public class ClientsService {
 
         boolean flag = false;
 
-        Optional<Clients> cl2 = clientsRepository.getClient(cl.getId());
+        Optional<Clients> cl2 = clientsRepository.getClient(cl.getIdClient());
 
         if(cl2.isPresent()){
 

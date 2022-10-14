@@ -27,12 +27,12 @@ public class MessagesService {
 
     public Messages save(Messages m){
 
-        if(m.getId()==null){
+        if(m.getIdMessage()==null){
 
             return messagesRepository.save(m);
         }else{
 
-            Optional<Messages> sp2= messagesRepository.getMessage(m.getId());
+            Optional<Messages> sp2= messagesRepository.getMessage(m.getIdMessage());
 
             if(sp2.isPresent()){
                 return m;
@@ -44,9 +44,9 @@ public class MessagesService {
 
     public Messages update(Messages m){
 
-        if(m.getId()!=null){
+        if(m.getIdMessage()!=null){
 
-            Optional<Messages> m2 = messagesRepository.getMessage(m.getId());//Traer elemento BD con id de sp
+            Optional<Messages> m2 = messagesRepository.getMessage(m.getIdMessage());//Traer elemento BD con id de sp
 
             if(m2.isPresent()){
 
@@ -81,7 +81,7 @@ public class MessagesService {
 
         boolean flag = false;
 
-        Optional<Messages> m2 = messagesRepository.getMessage(m.getId());
+        Optional<Messages> m2 = messagesRepository.getMessage(m.getIdMessage());
 
         if(m2.isPresent()){
 

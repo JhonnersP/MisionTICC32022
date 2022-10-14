@@ -9,12 +9,12 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "tblreservations")
+@Table(name = "reservations")
 public class Reservations {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer Id;
+    private Integer IdReservation;
     private Date startDate;
     private Date devolutionDate;
 
@@ -32,12 +32,13 @@ public class Reservations {
     @JsonIgnoreProperties("reservation")
     private Scores Score;
 
-    public Integer getId() {
-        return Id;
+
+    public Integer getIdReservation() {
+        return IdReservation;
     }
 
-    public void setId(Integer id) {
-        Id = id;
+    public void setIdReservation(Integer idReservation) {
+        IdReservation = idReservation;
     }
 
     public Date getStartDate() {
