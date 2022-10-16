@@ -8,13 +8,13 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "tblmessages")
+@Table(name = "message")
 public class Messages implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer IdMessage;
-    private String MessageText;
+    private Integer idMessage;
+    private String messageText;
 
     @ManyToOne
     @JoinColumn(name = "doctorId")
@@ -27,19 +27,19 @@ public class Messages implements Serializable {
     private Clients client;
 
     public Integer getIdMessage() {
-        return IdMessage;
+        return idMessage;
     }
 
     public void setIdMessage(Integer idMessage) {
-        IdMessage = idMessage;
+        this.idMessage = idMessage;
     }
 
     public String getMessageText() {
-        return MessageText;
+        return messageText;
     }
 
     public void setMessageText(String messageText) {
-        MessageText = messageText;
+        this.messageText = messageText;
     }
 
     public Doctors getDoctor() {

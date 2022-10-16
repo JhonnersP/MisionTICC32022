@@ -24,13 +24,13 @@ public class ClientsRepository {
         return clientsCrudRepository.findById(id);
     }
 
-    public Clients save(Clients sp){
+    public Clients save(Clients cl){
 
-        return clientsCrudRepository.save(sp);
+        return clientsCrudRepository.save(cl);
     }
 
-    public void delete(Clients sp){
+    public void delete(Clients cl){
 
-        clientsCrudRepository.delete(sp);
+        clientsCrudRepository.delete(cl);
     }
 }

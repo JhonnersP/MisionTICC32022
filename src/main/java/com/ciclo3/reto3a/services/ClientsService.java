@@ -68,8 +68,8 @@ public class ClientsService {
                 if(cl.getAge()!=null){
                     cl2.get().setAge(cl.getAge());
                 }
-                if(cl.getMessage()!=null){
-                    cl2.get().setMessage(cl.getMessage());
+                if(cl.getMessages()!=null){
+                    cl2.get().setMessages(cl.getMessages());
                 }
                 if(cl.getReservations()!=null){
                     cl2.get().setReservations(cl.getReservations());

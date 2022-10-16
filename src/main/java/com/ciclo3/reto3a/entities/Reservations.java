@@ -10,14 +10,15 @@ import java.io.Serializable;
 import java.util.Date;
 
 @Entity
-@Table(name = "reservations")
+@Table(name = "reservation")
 public class Reservations implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer IdReservation;
+    private Integer idReservation;
     private Date startDate;
     private Date devolutionDate;
+    private String status = "created";
 
     @ManyToOne
     @JoinColumn(name = "doctorId")
@@ -31,15 +32,14 @@ public class Reservations implements Serializable {
 
     @OneToOne(cascade = {CascadeType.REMOVE}, mappedBy = "reservation")
     @JsonIgnoreProperties("reservation")
-    private Scores Score;
-
+    private Scores score;
 
     public Integer getIdReservation() {
-        return IdReservation;
+        return idReservation;
     }
 
     public void setIdReservation(Integer idReservation) {
-        IdReservation = idReservation;
+        this.idReservation = idReservation;
     }
 
     public Date getStartDate() {
@@ -56,6 +56,14 @@ public class Reservations implements Serializable {
 
     public void setDevolutionDate(Date devolutionDate) {
         this.devolutionDate = devolutionDate;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public Doctors getDoctor() {
@@ -75,10 +83,10 @@ public class Reservations implements Serializable {
     }
 
     public Scores getScore() {
-        return Score;
+        return score;
     }
 
     public void setScore(Scores score) {
-        Score = score;
+        this.score = score;
     }
 }

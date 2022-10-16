@@ -7,42 +7,42 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "scores")
+@Table(name = "score")
 public class Scores implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    private Integer Id;
-    private String MessageText;
-    private Integer Stars;
+    private Integer idScore;
+    private String messageText;
+    private Integer stars;
 
     @OneToOne
-    @JsonIgnoreProperties("scores")
+    @JsonIgnoreProperties("score")
     private Reservations reservation;
 
-    public Integer getId() {
-        return Id;
+    public Integer getIdScore() {
+        return idScore;
     }
 
-    public void setId(Integer id) {
-        Id = id;
+    public void setIdScore(Integer idScore) {
+        this.idScore = idScore;
     }
 
     public String getMessageText() {
-        return MessageText;
+        return messageText;
     }
 
     public void setMessageText(String messageText) {
-        MessageText = messageText;
+        this.messageText = messageText;
     }
 
     public Integer getStars() {
-        return Stars;
+        return stars;
     }
 
     public void setStars(Integer stars) {
-        Stars = stars;
+        this.stars = stars;
     }
 
     public Reservations getReservation() {

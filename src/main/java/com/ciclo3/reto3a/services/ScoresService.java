@@ -29,12 +29,12 @@ public class ScoresService {
 
     public Scores save(Scores s){
 
-        if(s.getId()==null){
+        if(s.getIdScore()==null){
 
             return scoresRepository.save(s);
         }else{
 
-            Optional<Scores> s2= scoresRepository.getScore(s.getId());
+            Optional<Scores> s2= scoresRepository.getScore(s.getIdScore());
 
             if(s2.isPresent()){
                 return s;
@@ -46,9 +46,9 @@ public class ScoresService {
 
     public Scores update(Scores s){
 
-        if(s.getId()!=null){
+        if(s.getIdScore()!=null){
 
-            Optional<Scores> s2 = scoresRepository.getScore(s.getId());//Traer elemento BD con id de sp
+            Optional<Scores> s2 = scoresRepository.getScore(s.getIdScore());//Traer elemento BD con id de sp
 
             if(s2.isPresent()){
 
@@ -83,7 +83,7 @@ public class ScoresService {
 
         boolean flag = false;
 
-        Optional<Scores> s2 = scoresRepository.getScore(s.getId());
+        Optional<Scores> s2 = scoresRepository.getScore(s.getIdScore());
 
         if(s2.isPresent()){
 

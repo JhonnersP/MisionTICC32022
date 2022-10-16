@@ -8,71 +8,73 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Table(name = "clients")
+@Table(name = "client")
 public class Clients implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer IdClient;
-    private String Name;
-    private Integer Age;
-    private String Email;
-    private String Password;
+    private Integer idClient;
+    private String email;
+    private String password;
+    private String name;
+    private Integer age;
+
+
 
     @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "client")
     @JsonIgnoreProperties("client")
-    private List<Messages> message;
+    private List<Messages> messages;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "client")
     @JsonIgnoreProperties("client")
     private List<Reservations> reservations;
 
     public Integer getIdClient() {
-        return IdClient;
+        return idClient;
     }
 
     public void setIdClient(Integer idClient) {
-        IdClient = idClient;
-    }
-
-    public String getName() {
-        return Name;
-    }
-
-    public void setName(String name) {
-        Name = name;
-    }
-
-    public Integer getAge() {
-        return Age;
-    }
-
-    public void setAge(Integer age) {
-        Age = age;
+        this.idClient = idClient;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
 
-    public List<Messages> getMessage() {
-        return message;
+    public String getName() {
+        return name;
     }
 
-    public void setMessage(List<Messages> message) {
-        this.message = message;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public List<Messages> getMessages() {
+        return messages;
+    }
+
+    public void setMessages(List<Messages> messages) {
+        this.messages = messages;
     }
 
     public List<Reservations> getReservations() {

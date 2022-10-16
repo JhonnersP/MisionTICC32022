@@ -24,13 +24,13 @@ public class MessagesRepository {
         return messagesCrudRepository.findById(id);
     }
 
-    public Messages save(Messages sp){
+    public Messages save(Messages m){
 
-        return messagesCrudRepository.save(sp);
+        return messagesCrudRepository.save(m);
     }
 
-    public void delete(Messages sp){
+    public void delete(Messages m){
 
-        messagesCrudRepository.delete(sp);
+        messagesCrudRepository.delete(m);
     }
 }

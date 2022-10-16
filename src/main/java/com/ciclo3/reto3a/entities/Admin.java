@@ -9,40 +9,40 @@ public class Admin implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer IdAdmin;
-    private String Email;
-    private String Password;
-    private String Name;
+    private Integer idAdmin;
+    private String email;
+    private String password;
+    private String name;
 
     public Integer getIdAdmin() {
-        return IdAdmin;
+        return idAdmin;
     }
 
     public void setIdAdmin(Integer idAdmin) {
-        IdAdmin = idAdmin;
+        this.idAdmin = idAdmin;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        this.email = email;
     }
 
     public String getPassword() {
-        return Password;
+        return password;
     }
 
     public void setPassword(String password) {
-        Password = password;
+        this.password = password;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 }

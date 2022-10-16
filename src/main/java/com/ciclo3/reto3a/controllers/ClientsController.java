@@ -18,7 +18,6 @@ public class ClientsController {
     private ClientsService clientsService;
 
     @GetMapping("/all")
-    @ResponseStatus(HttpStatus.CREATED)
     public List<Clients> getAll(){
         return clientsService.getAll();
     }

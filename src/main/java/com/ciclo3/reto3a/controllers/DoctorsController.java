@@ -18,7 +18,6 @@ public class DoctorsController {
     private DoctorsService doctorsService;
 
     @GetMapping("/all")
-    @ResponseStatus(HttpStatus.CREATED)
     public List<Doctors> getAll(){
 
         return doctorsService.getAll();

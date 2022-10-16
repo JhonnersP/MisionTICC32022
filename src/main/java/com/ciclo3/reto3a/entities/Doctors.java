@@ -7,16 +7,16 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Table(name = "doctors")
+@Table(name = "doctor")
 public class Doctors implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer Id;
-    private String Name;
-    private String Department;
-    private String Description;
-    private Integer Year;
+    private Integer id;
+    private String name;
+    private String department;
+    private String description;
+    private Integer year;
 
     @ManyToOne
     @JoinColumn(name = "specialtyId")
@@ -32,43 +32,43 @@ public class Doctors implements Serializable {
     private List<Reservations> reservations;
 
     public Integer getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Integer id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getDepartment() {
-        return Department;
+        return department;
     }
 
     public void setDepartment(String department) {
-        Department = department;
+        this.department = department;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
     public Integer getYear() {
-        return Year;
+        return year;
     }
 
     public void setYear(Integer year) {
-        Year = year;
+        this.year = year;
     }
 
     public Specialties getSpecialty() {

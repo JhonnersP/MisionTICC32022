@@ -30,6 +30,7 @@ public class AdminService {
         if(adm.getIdAdmin()==null){
 
             return adminRepository.save(adm);
+
         }else{
 
             Optional<Admin> adm2= adminRepository.getAdmin(adm.getIdAdmin());

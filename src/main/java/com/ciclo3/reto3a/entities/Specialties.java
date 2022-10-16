@@ -8,41 +8,41 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Table(name = "specialties")
+@Table(name = "specialty")
 public class Specialties implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer Id;
-    private String Name;
-    private String Description;
+    private Integer id;
+    private String name;
+    private String description;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "specialty") //mappedBy se refiere al atributo donde esta specialties
     @JsonIgnoreProperties("specialty")
     private List<Doctors> doctors;
 
     public Integer getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Integer id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
     public List<Doctors> getDoctors() {
