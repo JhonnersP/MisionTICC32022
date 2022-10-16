@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE-Edge"/> <!--Compatibilidad con navegadores microsoft-->
+    <meta name="viewport" content="width=device-width, initial-scale=1" /> <!-- Se adapta a tamano de pagina, pagina responsive-->
+    <meta name="author" content="Jhonners P" />
+    <meta name="description" content="Autenticacion con 0Auth2" />
+    <meta name="keywords" content="0Auth2, MisionTIC, Sergio Arboleda"> <!--Palabra clave para ser encontrado en el buscador-->
+    <title>Servicios Medicos</title>
+    <base   href="/" />
+
+    <!-- Se importan librerias -->
+
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js" > </script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js" > </script>
+
+</head>
+<body>
+    <h1>Servicios Medicos</h1>
+    <div    class="container unauthenticated">
+        Para iniciar sesion con <i>GitHub</i>:
+        <a href="/oauth2/authorization/github"> has click</a>
+    </div>
+
+    <div    class="container authenticated" style="display.none">
+        Autenticado como: <span id="user"></span>
+    </div>
+
+
+</body>
+
+<script type="text/javascript">
+    $.get("/user", function (data){
+        $("#user").html(data.name);
+        $(".unauthenticated").hide();
+        $(".authenticated").show();
+    })
+</script>
+</html>
