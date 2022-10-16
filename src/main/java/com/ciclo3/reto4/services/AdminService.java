@@ -79,19 +79,13 @@ public class AdminService {
         return adm;
     }
 
-    public boolean delete(Admin adm){
+    public boolean delete(int admId){
 
-        boolean flag = false;
-
-        Optional<Admin> adm2 = adminRepository.getAdmin(adm.getIdAdmin());
-
-        if(adm2.isPresent()){
-
-            adminRepository.delete(adm2.get());
-            flag = true;
-        }
-
-        return flag;
+        Boolean del = getAdmin(admId).map(admin -> {
+            adminRepository.delete(admin);
+            return true;
+        }).orElse(false);
+        return del;
 
     }
 

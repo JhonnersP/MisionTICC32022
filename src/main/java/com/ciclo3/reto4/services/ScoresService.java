@@ -77,19 +77,15 @@ public class ScoresService {
         return s;
     }
 
-    public boolean delete(Scores s){
+    public boolean delete(int scoreId){
 
-        boolean flag = false;
+        Boolean del = getScore(scoreId).map(scores -> {
+            scoresRepository.delete(scores);
+            return true;
+        }).orElse(false);
+        return del;
 
-        Optional<Scores> s2 = scoresRepository.getScore(s.getIdScore());
 
-        if(s2.isPresent()){
-
-            scoresRepository.delete(s2.get());
-            flag = true;
-        }
-
-        return flag;
 
     }
 

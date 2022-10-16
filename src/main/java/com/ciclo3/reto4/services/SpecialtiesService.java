@@ -77,19 +77,15 @@ public class SpecialtiesService {
         return sp;
     }
 
-    public boolean delete(Specialties sp){
+    public boolean delete(int specialtyId){
 
-        boolean flag = false;
+        Boolean del = getSpecialty(specialtyId).map(specialties -> {
+            specialtiesRepository.delete(specialties);
+            return true;
+        }).orElse(false);
+        return  del;
 
-        Optional<Specialties> sp2 = specialtiesRepository.getSpecialty(sp.getId());
 
-        if(sp2.isPresent()){
-
-            specialtiesRepository.delete(sp2.get());
-            flag = true;
-        }
-
-        return flag;
 
     }
 

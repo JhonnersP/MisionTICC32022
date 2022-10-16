@@ -86,19 +86,13 @@ public class ClientsService {
         return cl;
     }
 
-    public boolean delete(Clients cl){
+    public boolean delete(int clientId){
 
-        boolean flag = false;
-
-        Optional<Clients> cl2 = clientsRepository.getClient(cl.getIdClient());
-
-        if(cl2.isPresent()){
-
-            clientsRepository.delete(cl2.get());
-            flag = true;
-        }
-
-        return flag;
+        Boolean del = getClient(clientId).map(clients -> {
+            clientsRepository.delete(clients);
+            return true;
+        }).orElse(false);
+        return del;
 
     }
 

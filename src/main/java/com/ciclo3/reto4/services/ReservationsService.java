@@ -81,19 +81,15 @@ public class ReservationsService {
         return r;
     }
 
-    public boolean delete(Reservations r){
+    public boolean delete(int reservationId){
 
-        boolean flag = false;
+        Boolean del = getReservation(reservationId).map(reservations -> {
+            reservationsRepository.delete(reservations);
+            return true;
+        }).orElse(false);
+        return del;
 
-        Optional<Reservations> r2 = reservationsRepository.getReservation(r.getIdReservation());
 
-        if(r2.isPresent()){
-
-            reservationsRepository.delete(r2.get());
-            flag = true;
-        }
-
-        return flag;
 
     }
 

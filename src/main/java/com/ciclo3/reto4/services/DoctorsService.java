@@ -97,18 +97,14 @@ public class DoctorsService {
         return doc;
     }
 
-    public boolean delete(int id){
+    public boolean delete(int doctorId){
 
-        boolean flag = false;
-        Optional<Doctors> dc = doctorsRepository.getDoctor(id);
+        Boolean del = getDoctor(doctorId).map(doctors -> {
+            doctorsRepository.delete(doctors);
+            return true;
+        }).orElse(false);
+        return del;
 
-        if(dc.isPresent()){
-
-            doctorsRepository.delete(dc.get());
-            flag = true;
-        }
-
-        return flag;
     }
 
 
