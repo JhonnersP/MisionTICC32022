@@ -19,7 +19,6 @@ public class AdminController {
     private AdminService adminService;
 
     @GetMapping("/all")
-    @ResponseStatus(HttpStatus.CREATED)
     public List<Admin> getAll(){
         return adminService.getAll();
     }

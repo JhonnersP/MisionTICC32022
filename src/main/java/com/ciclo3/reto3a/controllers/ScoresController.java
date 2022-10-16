@@ -19,7 +19,6 @@ public class ScoresController {
     private ScoresService scoresService;
 
     @GetMapping("/all")
-    @ResponseStatus(HttpStatus.CREATED)
     public List<Scores> getAll(){
         return scoresService.getAll();
     }

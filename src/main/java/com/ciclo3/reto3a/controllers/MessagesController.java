@@ -11,14 +11,13 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/Message")
-//@CrossOrigin(origins = "*", methods = {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
+@CrossOrigin(origins = "*", methods = {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 public class MessagesController {
 
     @Autowired
     private MessagesService messagesService;
 
     @GetMapping("/all")
-    @ResponseStatus(HttpStatus.CREATED)
     public List<Messages> getAll(){
         return messagesService.getAll();
     }

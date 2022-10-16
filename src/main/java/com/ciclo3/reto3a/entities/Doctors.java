@@ -15,8 +15,9 @@ public class Doctors implements Serializable {
     private Integer id;
     private String name;
     private String department;
-    private String description;
     private Integer year;
+    private String description;
+
 
     @ManyToOne
     @JoinColumn(name = "specialtyId")
