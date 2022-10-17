@@ -57,9 +57,9 @@ public class ReservationsController {
     }
 
     @GetMapping("report-dates/{dateOne}/{dateTwo}")
-    public Integer getReservationReportDates(@PathVariable("dateOne") String dateOne,@PathVariable("dateTwo") String dateTwo){
+    public List<Reservations> getReservationReportDates(@PathVariable("dateOne") String dateOne,@PathVariable("dateTwo") String dateTwo){
 
-        return reservationsService.getReservationsPeriod(dateOne,dateTwo).size();
+        return reservationsService.getReservationsPeriod(dateOne,dateTwo);
     }
 
     @GetMapping("/report-status")
