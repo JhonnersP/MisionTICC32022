@@ -2,10 +2,16 @@ package com.ciclo3.reto5.services;
 
 
 import com.ciclo3.reto5.entities.Reservations;
+import com.ciclo3.reto5.entities.custom.CountClient;
+import com.ciclo3.reto5.entities.custom.StatusAmount;
 import com.ciclo3.reto5.repositories.ReservationsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -91,6 +97,38 @@ public class ReservationsService {
 
 
 
+    }
+
+    public List<CountClient> getTopClients(){
+
+        return reservationsRepository.getTopClients();
+    }
+
+    public List<Reservations> getReservationsPeriod(String dateA, String dateB){
+
+        SimpleDateFormat parser= new SimpleDateFormat("yyyy-MM-dd");
+        Date a = new Date();
+        Date b = new Date();
+        try {
+            a= parser.parse(dateA);
+            b= parser.parse(dateB);
+        }catch (ParseException e){
+            e.printStackTrace();
+        }
+
+        if(a.before(b)){
+            return reservationsRepository.getReservationPeriod(a,b);
+        }else{
+            return new ArrayList<>();
+        }
+    }
+
+    public StatusAmount getReservationsStatusReport(){
+
+        List<Reservations>completed=reservationsRepository.getReservationByStatus("completed");
+        List<Reservations>cancelled=reservationsRepository.getReservationByStatus("cancelled");
+
+        return  new StatusAmount(completed.size(),cancelled.size());
     }
 
 
